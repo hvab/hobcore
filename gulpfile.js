@@ -50,8 +50,9 @@ gulp.task('styles', function() {
     .pipe(gulpIf(isDevelopment, sourcemaps.write('.')))
     .pipe(gulpIf(!isDevelopment, cssnano({
       discardComments: { removeAll: true },
-      autoprefixer: false, // мы уже делаем это выше
-      colormin: false // чтобы не конвертировались rgba в hsla
+      autoprefixer: false,  // мы уже делаем это выше
+      colormin: false,      // чтобы не конвертировались rgba в hsla
+      zindex: false         // http://cssnano.co/optimisations/#optimise-z-index-unsafe-
     })))
     .pipe(gulp.dest('dist'));
 });
