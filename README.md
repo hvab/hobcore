@@ -20,12 +20,12 @@
   $ git clone https://github.com/hobcode/hobcore .
   ```
 
-2. Install node modules.
+2. Install node modules
   ```
   $ npm install
   ```
 
-3. Install bower globally and components.
+3. Install bower globally and components
   ```
   $ npm install -g bower
   $ bower install
