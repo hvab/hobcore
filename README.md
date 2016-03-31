@@ -12,37 +12,57 @@
 
 ## Install
 1. Clone repository
-  ```
-  $ git clone https://github.com/hobcode/hobcore
+  ```sh
+  git clone https://github.com/hobcode/hobcore
   ```
   or without project folder
-  ```
-  $ git clone https://github.com/hobcode/hobcore .
+  ```sh
+  git clone https://github.com/hobcode/hobcore .
   ```
 
 2. Install node modules
-  ```
-  $ npm install
+  ```sh
+  npm install
   ```
 
 3. Install bower globally and components
-  ```
-  $ npm install -g bower
-  $ bower install
+  ```sh
+  npm install -g bower
+  bower install
   ```
 
 ## Usage
 Basic developer usage
-```
-$ export PATH=./node_modules/.bin:$PATH
-$ export NODE_ENV=development
-$ gulp
+```sh
+export PATH=./node_modules/.bin:$PATH
+export NODE_ENV=development
+gulp
 ```
 Production
-```
-$ NODE_ENV=production gulp
+```sh
+NODE_ENV=production gulp
 ```
 or just build `dist` without run server
+```sh
+NODE_ENV=production gulp build
 ```
-$ NODE_ENV=production gulp build
+For multiple projects with nested directory structure, such as:
+```
+/projects
+  /layer1/src
+  /layer2/src
+```
+use the gulp CLI option `--cwd`.
+
+From the `project/` directory:
+```sh
+gulp --cwd projects/layer1
+```
+Dont't forget to change pathes to bower components, for example
+```scss
+@import "../bower_components/bootstrap/scss/bootstrap.scss";
+```
+to
+```scss
+@import "../../../bower_components/bootstrap/scss/bootstrap.scss";
 ```
