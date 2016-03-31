@@ -52,9 +52,7 @@ For multiple projects with nested directory structure, such as:
   /layer1/src
   /layer2/src
 ```
-use the gulp CLI option `--cwd`.
-
-From the `project/` directory:
+use the gulp CLI option `--cwd`:
 ```sh
 gulp --cwd projects/layer1
 ```
