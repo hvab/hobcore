@@ -8,7 +8,7 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const atImport = require('postcss-import');
 const assets  = require('postcss-assets');
-const cssnano = require('gulp-cssnano');
+const csso = require('gulp-csso');
 const gulpIf = require('gulp-if');
 const flatten = require('gulp-flatten');
 const imagemin = require('gulp-imagemin');
@@ -37,7 +37,7 @@ const processors = [
     ]
   }),
   assets({
-    loadPaths: ['dist/images/', 'dist/assets/'],
+    loadPaths: ['dist/**'],
     relativeTo: 'dist/'
   })
 ];
@@ -48,12 +48,7 @@ gulp.task('styles', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
     .pipe(gulpIf(isDevelopment, sourcemaps.write('.')))
-    .pipe(gulpIf(!isDevelopment, cssnano({
-      discardComments: { removeAll: true },
-      autoprefixer: false,  // мы уже делаем это выше
-      colormin: false,      // чтобы не конвертировались rgba в hsla
-      zindex: false         // http://cssnano.co/optimisations/#optimise-z-index-unsafe-
-    })))
+    .pipe(gulpIf(!isDevelopment, csso()))
     .pipe(gulp.dest('dist'));
 });
 
