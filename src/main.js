@@ -1,3 +1,3 @@
-//= ../bower_components/jquery/dist/jquery.js
-//= ../bower_components/tether/dist/js/tether.js
-//= ../bower_components/bootstrap/dist/js/bootstrap.js
+//= ../libs/jquery/dist/jquery.js
+//= ../libs/tether/dist/js/tether.js
+//= ../libs/bootstrap/dist/js/bootstrap.js

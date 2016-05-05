@@ -1,1 +1,1 @@
-//= ../bower_components/html5shiv/dist/html5shiv.js
+//= ../libs/html5shiv/dist/html5shiv.js

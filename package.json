@@ -1,10 +1,11 @@
 {
   "name": "hobcore",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Boilerplate to start new project",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npm run deps",
+    "deps": "bower i --allow-root"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.5",
     "bower": "^1.7.7",
-    "browser-sync": "^2.11.2",
+    "browser-sync": "^2.12.5",
     "del": "^2.2.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-csso": "^2.0.0",
@@ -45,8 +46,8 @@
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
-    "postcss-assets": "^4.0.1",
-    "postcss-import": "^8.0.2",
+    "postcss-assets": "^4.1.0",
+    "postcss-import": "^8.1.1",
     "vinyl-ftp": "^0.4.5"
   }
 }
