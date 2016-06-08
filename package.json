@@ -38,6 +38,7 @@
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.0.1",
     "gulp-notify": "^2.2.0",
+    "gulp-nunjucks": "^2.2.0",
     "gulp-postcss": "^6.1.1",
     "gulp-replace": "^0.5.4",
     "gulp-rigger": "^0.5.8",

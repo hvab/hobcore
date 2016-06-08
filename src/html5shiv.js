@@ -1,1 +1,1 @@
-//= ../libs/html5shiv/dist/html5shiv.js
+//= ~/html5shiv/dist/html5shiv.js

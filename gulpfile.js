@@ -13,6 +13,7 @@ const gulpIf = require('gulp-if');
 const flatten = require('gulp-flatten');
 const imagemin = require('gulp-imagemin');
 const rigger = require('gulp-rigger');
+const nunjucks = require('gulp-nunjucks');
 const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 const notify = require("gulp-notify");
@@ -28,7 +29,12 @@ const replace = require('gulp-replace');
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 const processors = [
-  atImport(),
+  atImport({
+    path: [
+      __dirname+'/libs',
+      __dirname+'/lib'
+    ]
+  }),
   autoprefixer({
     browsers: [
       'Chrome >= 35',
@@ -51,7 +57,12 @@ const processors = [
 gulp.task('styles', function() {
   return gulp.src('src/*.scss')
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-    .pipe(sass().on('error', notify.onError(function(err){
+    .pipe(sass({
+      includePaths: [
+        __dirname+'/libs',
+        __dirname+'/lib'
+      ]
+    }).on('error', notify.onError(function(err){
       return {
         title: 'Sass',
         message: err.message,
@@ -105,7 +116,13 @@ gulp.task('misc', function() {
 var date = new Date();
 gulp.task('html', function() {
   return gulp.src('src/*.html')
-    .pipe(rigger())
+    .pipe(nunjucks.compile().on('error', notify.onError(function(err){
+      return {
+        title: 'Nunjucks',
+        message: err.message,
+        sound: 'Blow'
+      };
+    })))
     .pipe(gulpIf( !isDevelopment, replace('?rev=@@', '?rev='+date.getTime()) ))
     .pipe(gulp.dest('dist'))
     .pipe(size());
@@ -114,6 +131,7 @@ gulp.task('html', function() {
 
 gulp.task('js', function() {
   return gulp.src('src/*.js')
+  .pipe(replace('//= ~', '//= '+__dirname+'/libs'))
   .pipe(gulpIf(isDevelopment, sourcemaps.init()))
   .pipe(rigger())
   .pipe(gulpIf(isDevelopment, sourcemaps.write('.')))

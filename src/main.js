@@ -1,3 +1,9 @@
-//= ../libs/jquery/dist/jquery.js
-//= ../libs/tether/dist/js/tether.js
-//= ../libs/bootstrap/dist/js/bootstrap.js
+/* Vendor deps */
+//= ~/jquery/dist/jquery.js
+//= ~/bootstrap/js/dist/util.js
+
+/* Authored deps */
+
+/* Common Blocks */
+
+/* Pages */
