@@ -8,7 +8,7 @@
 * Included jQuery 2.2.2.
 * [SCSS (SASS)](http://sass-lang.com/) as a preprocessor for css. Sourcemaps is included. [PostCSS](https://github.com/postcss/postcss) with [autoprefixer](https://github.com/postcss/autoprefixer), postcss-import, postcss-assets.
 * JavaScript with sourcemaps, gulp-rigger and gulp-uglify.
-* HTML with gulp-rigger.
+* HTML with gulp-nunjucks.
 
 ## Install
 ```sh
@@ -42,19 +42,10 @@ NODE_ENV=production gulp deploy
 
 For multiple projects with nested directory structure, such as:
 ```
-/projects
-  /layer1/src
-  /layer2/src
+/project1/src
+/project2/src
 ```
 use the gulp CLI option `--cwd`:
 ```sh
-gulp --cwd projects/layer1
-```
-Dont't forget to change pathes to bower components, for example
-```scss
-@import "../libs/bootstrap/scss/bootstrap.scss";
-```
-to
-```scss
-@import "../../../libs/bootstrap/scss/bootstrap.scss";
+gulp --cwd project1
 ```
