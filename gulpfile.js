@@ -168,12 +168,12 @@ gulp.task('build', gulp.series(
 
 gulp.task('watch', function() {
   gulp.watch(['src/**/*.+(scss|css)'], gulp.series('styles'));
-  gulp.watch('src/**/*.+(png|jpg|jpeg|gif|bmp|svg|ico)', gulp.series('images'));
+  gulp.watch('src/**/*.+(png|jpg|jpeg|gif|bmp|svg|ico)', gulp.series('images', 'styles'));
   gulp.watch([
     'src/**/*.*',
     '!src/**/*.+(png|jpg|jpeg|gif|bmp|svg|ico|js|html|css|scss)',
     '!src/{favicon.ico,robots.txt,sitemap.xml,*.json}'
-  ], gulp.series('assets'));
+  ], gulp.series('assets', 'styles'));
   gulp.watch('src/**/*.html', gulp.series('html'));
   gulp.watch('src/**/*.js', gulp.series('js'));
   gulp.watch('src/{favicon.ico,robots.txt,sitemap.xml,*.json}', gulp.series('misc'));
