@@ -1,6 +1,8 @@
 # hobcore
 > Simple markup builder to start new project
 
+![dependencies](https://david-dm.org/hobcode/hobcore.svg)
+
 ## Basic features
 * Included Gulp v4.0
 * Included Bower.
