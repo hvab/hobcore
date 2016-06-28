@@ -36,10 +36,6 @@ or just build `dist` without run server
 ```sh
 NODE_ENV=production gulp build
 ```
-or the same
-```sh
-npm run build
-```
 
 Deploy to FTP
 ```sh

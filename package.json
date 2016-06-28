@@ -6,7 +6,6 @@
   "scripts": {
     "postinstall": "npm run deps",
     "deps": "bower i --allow-root",
-    "build": "NODE_ENV=production gulp build"
   },
   "repository": {
     "type": "git",
