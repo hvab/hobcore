@@ -64,7 +64,7 @@ vendors     # Vendor dependencies with configs, static files and fonts
 
 Example
 ```sh
-common/
+common/                       # 3 level
   _variables.scss             # authored variables
   header/
     _header.scss              # include in main.scss
@@ -74,9 +74,9 @@ common/
   nav/
   page/
   text/
-mixins/
+mixins/                       # 2 level
   _mixins.scss                # include in main.scss
-pages/
+pages/                        # 4 level
   index/
     index.html                # compile with Nunjucks and copy to dist/
     _index.scss
@@ -88,7 +88,7 @@ pages/
 templates/
   _nav.html                   # include by Nunjucks templates
   base.html                   # include by pages (about.html)
-vendors/
+vendors/                      # 1 level
   _bootstrap-variables.scss   # redefine bootstrap variables
   _bootstrap.scss             # customize bootstrap components
   fancybox/
