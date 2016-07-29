@@ -42,6 +42,11 @@ Deploy to FTP
 NODE_ENV=production gulp deploy
 ```
 
+ZIP `dist` folder (`gulp build` before it)
+```sh
+gulp zip
+```
+
 For multiple projects with nested directory structure, such as:
 ```
 /project1/src

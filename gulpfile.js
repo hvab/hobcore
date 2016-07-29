@@ -21,6 +21,7 @@ const size = require("gulp-size");
 const debug = require('gulp-debug');
 const ftp = require('vinyl-ftp');
 const replace = require('gulp-replace');
+const zip = require('gulp-zip');
 
 // export PATH=./node_modules/.bin:$PATH
 // export NODE_ENV=development
@@ -147,6 +148,13 @@ gulp.task('js', function() {
 
 gulp.task('clean', function() {
   return del('dist/*');
+});
+
+
+gulp.task('zip', function() {
+  return gulp.src('dist/**')
+    .pipe(zip('dist.zip'))
+    .pipe(gulp.dest('dist/'));
 });
 
 
