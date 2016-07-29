@@ -79,7 +79,7 @@ gulp.task('styles', function() {
       };
     })))
     .pipe(debug({title: 'postcss:'}))
-    .pipe(gulpIf(isDevelopment, sourcemaps.write('.')))
+    .pipe(gulpIf(isDevelopment, sourcemaps.write('')))
     .pipe(gulpIf(!isDevelopment, csso()))
     .pipe(gulp.dest('dist'))
     .pipe(size());
@@ -139,7 +139,7 @@ gulp.task('js', function() {
   .pipe(replace('//= ~', '//= '+__dirname+'/libs'))
   .pipe(gulpIf(isDevelopment, sourcemaps.init()))
   .pipe(rigger())
-  .pipe(gulpIf(isDevelopment, sourcemaps.write('.')))
+  .pipe(gulpIf(isDevelopment, sourcemaps.write('')))
   .pipe(gulpIf(!isDevelopment, uglify()))
   .pipe(gulp.dest('dist'))
   .pipe(size());
