@@ -1,9 +1,9 @@
-/* Vendor deps */
+/* 1 level. Vendor deps */
 //= ~/jquery/dist/jquery.js
 //= ~/bootstrap/js/dist/util.js
 
-/* Authored deps */
 
-/* Common Blocks */
+/* 2 level. Common Blocks */
 
-/* Pages */
+
+/* 3 level. Pages Blocks */

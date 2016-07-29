@@ -1,12 +1,15 @@
-/* Vendor deps */
-@import "deps/bootstrap-variables";
-@import "deps/bootstrap";
-
-/* Authored deps */
-@import "lib/mixins";
-/* @import "lib/icon/icon"; */
-
-/* Common Blocks */
+/* 1 level. Vendor deps */
+@import "vendors/bootstrap-variables";
+@import "vendors/bootstrap";
 
 
-/* Pages */
+/* 2 level. Mixins */
+@import "mixins/mixins";
+
+
+/* 3 level. Common Blocks */
+@import "common/variables";
+@import "common/icon/icon";
+
+
+/* 4 level. Pages Blocks */
