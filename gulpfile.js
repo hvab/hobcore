@@ -115,7 +115,10 @@ gulp.task('misc', function() {
 
 var date = new Date();
 gulp.task('html', function() {
-  return gulp.src('src/*.html')
+  return gulp.src([
+    'src/**/*.html',
+    '!src/templates/**'
+    ])
     .pipe(nunjucks.compile().on('error', notify.onError(function(err){
       return {
         title: 'Nunjucks',
@@ -124,6 +127,7 @@ gulp.task('html', function() {
       };
     })))
     .pipe(gulpIf( !isDevelopment, replace('?rev=@@', '?rev='+date.getTime()) ))
+    .pipe(flatten())
     .pipe(gulp.dest('dist'))
     .pipe(size());
 });
