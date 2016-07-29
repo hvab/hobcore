@@ -51,3 +51,51 @@ use the gulp CLI option `--cwd`:
 ```sh
 gulp --cwd project1
 ```
+
+## Project structure
+
+```sh
+common      # Common blocks for entire project
+mixins      # SCSS mixins
+pages       # Blocks for pages
+templates   # Nunjucks templates
+vendors     # Vendor dependencies with configs, static files and fonts
+```
+
+Example
+```sh
+common/
+  _variables.scss             # authored variables
+  header/
+    _header.scss              # include in main.scss
+    _header.js                # include in main.js
+    header.png                # copy to dist/images
+  footer/
+  nav/
+  page/
+  text/
+mixins/
+  _mixins.scss                # include in main.scss
+pages/
+  index/
+    index.html                # compile with Nunjucks and copy to dist/
+    _index.scss
+    banner/
+      _banner.scss
+      _banner.js
+      banner.png
+      banner.mp4              # copy to dist/assets
+templates/
+  _nav.html                   # include by Nunjucks templates
+  base.html                   # include by pages (about.html)
+vendors/
+  _bootstrap-variables.scss   # redefine bootstrap variables
+  _bootstrap.scss             # customize bootstrap components
+  fancybox/
+    _fancybox.scss
+    fancybox.png
+  fonts/
+    rubl/
+      _rubl.scss              # include in main.scss
+      rubl.eot                # copy to dist/assets
+```
