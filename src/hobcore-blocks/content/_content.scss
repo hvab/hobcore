@@ -1,0 +1,56 @@
+.content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer / 2;
+
+    line-height: 1.1;
+  }
+
+  h1 + h2,
+  h2 + h3,
+  h3 + h4,
+  h4 + h5,
+  h5 + h6,
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0;
+  }
+
+
+  p {
+    margin-top: 0;
+    margin-bottom: $spacer;
+  }
+
+
+  address {
+    margin-bottom: $spacer;
+
+    font-style: normal;
+    line-height: inherit;
+  }
+
+
+  ol,
+  ul,
+  dl {
+    margin-top: 0;
+    margin-bottom: $spacer;
+  }
+
+  ol ol,
+  ul ul,
+  ol ul,
+  ul ol {
+    margin-bottom: 0;
+  }
+
+
+  blockquote {
+    margin: 0 0 $spacer;
+  }
+}

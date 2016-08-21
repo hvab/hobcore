@@ -1,0 +1,115 @@
+// Text truncate
+// Requires inline-block or block for proper styling
+@mixin text_truncate() {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// CSS image replacement
+@mixin text_hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// Only display content to screen readers
+// See: http://a11yproject.com/posts/how-to-hide-content
+@mixin text_sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+
+/* Utils */
+.text_title {
+  line-height: 1.1;
+}
+
+.text_truncate {
+  @include text_truncate;
+}
+
+.text_hide {
+  @include text_hide;
+}
+
+.text_sr {
+  @include text_sr;
+}
+
+
+/* Align */
+.text_center {
+  text-align: center;
+}
+
+.text_left {
+  text-align: left;
+}
+
+.text_right {
+  text-align: right;
+}
+
+
+/* Sizes */
+.text_size_xs {
+  font-size: rem(12px);
+}
+
+.text_size_s {
+  font-size: rem(14px);
+}
+
+.text_size_m {
+  font-size: rem(20px);
+}
+
+.text_size_l {
+  font-size: rem(24px);
+}
+
+.text_size_xl {
+  font-size: rem(34px);
+}
+
+
+/* Colors */
+.text_color_primary {
+  color: rgba(0, 0, 0, 1);
+}
+
+.text_color_secondary {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.text_color_disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.text_color_divider {
+  color: rgba(0, 0, 0, 0.12);
+}
+
+/* Background colors */
+.text_bg_300 {
+  background-color: #e0e0e0;
+}
+
+.text_bg_100 {
+  background-color: #f5f5f5;
+}
+
+.text_bg_50 {
+  background-color: #fafafa;
+}

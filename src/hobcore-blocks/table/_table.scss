@@ -1,10 +1,18 @@
-$table-cell-padding: 0.75rem !default;
-$table-sm-cell-padding: 0.3rem !default;
+table {
+  // No longer part of Normalize since v4
+  border-collapse: collapse;
+  // Reset for nesting within parents with `background-color`.
+  background-color: $table-bg;
+}
 
-$table-bg: transparent !default;
-$table-bg-accent: rgba(0,0,0,.05) !default;
-$table-bg-hover:  rgba(0,0,0,.075) !default;
-$table-bg-active: $table-bg-hover !default;
+caption {
+  padding-top: $table-cell-padding;
+  padding-bottom: $table-cell-padding;
+  text-align: left;
+  caption-side: bottom;
+}
 
-$table-border-width: 1px !default;
-$table-border-color: #ccc !default;
+th {
+  // Centered by default, but left-align-ed to match the `td`s below.
+  text-align: left;
+}

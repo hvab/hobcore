@@ -1,0 +1,251 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($color, $background, $border) {
+  $active-background: darken($background, 10%);
+  $active-border: darken($border, 12%);
+
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  @include hover {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+  }
+
+  &:active,
+  &.active {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+    // Remove the gradient for the pressed/active state
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color;
+      background-color: darken($background, 17%);
+          border-color: darken($border, 25%);
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      background-color: $background;
+          border-color: $border;
+    }
+    @include hover {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+}
+
+@mixin button-outline-variant($color) {
+  color: $color;
+  background-image: none;
+  background-color: transparent;
+  border-color: $color;
+
+  @include hover {
+    color: #fff;
+    background-color: $color;
+        border-color: $color;
+  }
+
+  &:focus,
+  &.focus {
+    color: #fff;
+    background-color: $color;
+        border-color: $color;
+  }
+
+  &:active,
+  &.active {
+    color: #fff;
+    background-color: $color;
+        border-color: $color;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: #fff;
+      background-color: darken($color, 17%);
+          border-color: darken($color, 25%);
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      border-color: lighten($color, 20%);
+    }
+    @include hover {
+      border-color: lighten($color, 20%);
+    }
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  @include border-radius($border-radius);
+}
+
+// Work around a Firefox/IE bug where the transparent `button` background
+// results in a loss of the default `button` focus styles.
+//
+// Credit: https://github.com/suitcss/base/
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+button {
+  // Remove all `margin`s so our classes don't have to do it themselves.
+  margin: 0;
+  // Normalize includes `font: inherit;`, so `font-family`. `font-size`, etc are
+  // properly inherited. However, `line-height` isn't addressed there. Using this
+  // ensures we don't need to unnecessarily redeclare the global font stack.
+  line-height: inherit;
+  // iOS adds rounded borders by default
+  border-radius: 0;
+
+  touch-action: manipulation;
+}
+
+.button {
+  display: inline-block;
+
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  user-select: none;
+
+  border: 1px solid transparent;
+
+  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      @include tab-focus();
+    }
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    opacity: 0.65;
+  }
+}
+
+
+//
+// Alternate buttons
+//
+.button_theme_primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+.button_theme_secondary {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+.button_theme_primary-outline {
+  @include button-outline-variant($btn-primary-bg);
+}
+
+.button_theme_secondary-outline {
+  @include button-outline-variant($btn-secondary-border);
+}
+
+/* Plain button */
+.button_view_plain {
+  font-weight: normal;
+  color: $btn-primary-bg;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  @include hover {
+    border-color: transparent;
+  }
+  @include hover-focus {
+    color: $btn-primary-bg;
+    background-color: transparent;
+  }
+  &:disabled {
+    @include hover-focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+//
+// Button Sizes
+//
+
+.button_size_lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-border-radius-lg);
+}
+
+.button_size_sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+}
+
+
+//
+// Block button
+//
+
+.button_block {
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+.media {
+  overflow: hidden;
+}
+
+.media__body {
+  overflow: hidden;
+  width: 10000px;
+}
+
+.media__item,
+.media__body {
+  display: table-cell;
+
+  vertical-align: top;
+}
+
+.media__item_middle {
+  vertical-align: middle;
+}
+
+.media__item_bottom {
+  vertical-align: bottom;
+}
+
+.media__object {
+  display: block;
+}
