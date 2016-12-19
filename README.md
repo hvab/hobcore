@@ -1,6 +1,7 @@
 # hobcore
 > Simple markup builder to start new project
 
+[![GitHub Release](https://img.shields.io/github/release/palegrow/hobcore.svg?style=flat)](https://github.com/palegrow/hobcore/releases)
 ![dependencies](https://david-dm.org/palegrow/hobcore.svg)
 
 ## Basic features
